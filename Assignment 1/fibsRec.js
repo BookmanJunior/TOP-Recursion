@@ -19,3 +19,6 @@ const fibsRec = (num, arr = [0, 1]) => {
 };
 
 console.log(fibsRec(77));
+
+const fibOneLiner = (num) =>
+  num < 2 ? num : fibOneLiner(num - 1) + fibOneLiner(num - 2);
