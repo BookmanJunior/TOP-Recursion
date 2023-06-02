@@ -22,9 +22,10 @@ const mergeSort = (array) => {
 
   mergeSort(leftHalf);
   mergeSort(rightHalf);
+  return merge(leftHalf, rightHalf, array);
 };
 
-mergeSort([3, 5, 7, 15, 1, 4, 20]);
+console.log(mergeSort([3, 5, 7, 15, 1, 4, 20]));
 
 // helper function
 
@@ -37,8 +38,26 @@ mergeSort([3, 5, 7, 15, 1, 4, 20]);
 // else increment right half and the original array.
 // check for remaining numbers in left half and right half.
 
-const merge = (leftHalf, rightHalf, array) => {
-  const i = 0;
-  const j = 0;
-  const k = 0;
-};
+function merge(leftHalf, rightHalf, array) {
+  let i = 0;
+  let j = 0;
+  let k = 0;
+
+  while (i < leftHalf.length && j < rightHalf.length) {
+    if (leftHalf[i] < rightHalf[j]) {
+      array[k++] = leftHalf[i++];
+    } else {
+      array[k++] = rightHalf[j++];
+    }
+  }
+
+  for (; i < leftHalf.length; i++) {
+    array[k++] = leftHalf[i];
+  }
+
+  for (; j < rightHalf.length; j++) {
+    array[k++] = rightHalf[j];
+  }
+
+  return array;
+}
