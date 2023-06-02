@@ -9,3 +9,22 @@
 // each number is the sum of the two preceding ones
 // get the last two items from the array and add them
 // push result into the array
+
+const fibs = (num) => {
+  const arr = [0, 1];
+
+  if (num < 0) {
+    return "Please enter a whole number";
+  }
+
+  if (num <= 1) {
+    return arr.at(num);
+  }
+
+  for (let i = 2; i < num; i++) {
+    arr.push(arr.at(-1) + arr.at(-2));
+  }
+  return arr;
+};
+
+console.log(fibs(8));
